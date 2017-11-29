@@ -1,0 +1,686 @@
+@font-face {
+    font-family: 'Akkurat Light';
+    src: url('../fonts/Akkurat-Light/Akkurat-Light.eot');
+    src: url('../fonts/Akkurat-Light/Akkurat-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Akkurat-Light/Akkurat-Light.woff') format('woff'),
+         url('../fonts/Akkurat-Light/Akkurat-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body, #wrapper, #grid, #grid2 {
+    height: 100%;
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5{
+	font-weight:normal;
+}
+
+h1 {
+	line-height:110%;
+	margin-bottom:28px;
+}
+
+h1 small {
+	display:block;
+	font-size:15px;
+	font-weight:normal;
+	line-height:20px;
+}
+
+h1 a {
+	color:white;
+	font-weight:bold;
+	
+}
+h1 a:hover {
+	color:#e0e0e0;
+}
+
+.mobile,
+.allbutton .mobile.col{
+	display:none;
+}
+
+
+
+body{
+  margin:0;
+  padding:0;
+  background-color:#000;
+  color:#fff;
+  font-family:'Akkurat Light','helvetica neue',sans-serif;
+  text-align:center;
+}
+
+
+.bgwrap{
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:1;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+.bgwrap > div{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	width:100%;
+	position:absolute;
+	height:100%;
+	display:none;
+	top:0;
+	left:0;
+}
+.bgwrap div.noodle-bg{
+	background-image:url('../images/noodle-lg.jpg');
+}
+.bgwrap div.twod-bg{
+	background-image:url('../images/2d-lg.jpg');
+}
+.bgwrap div.rus-bg{
+	background-image:url('../images/rus-lg.jpg');
+}
+.bgwrap div.murdoc-bg{
+	background-image:url('../images/murdoc-lg.jpg');
+}
+
+.bgwrap img{
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+}
+
+#wrapper{
+	max-width:600px;
+	height:800px;
+	margin:0 auto;
+	position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	z-index:2;
+}
+
+.wrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.wrap.start{
+	z-index:2;
+}
+
+.wrap.result{
+	z-index:1;
+}
+
+#shareWrap{
+	display:none;
+}
+
+.pre {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.pre img{
+	position:fixed;
+	left:50%;
+	top:50%;
+	transform:translate(-50%);
+	background: #000;
+    border-radius: 90px;
+}
+
+#grid {
+	width:600px;
+	height:600px;
+}
+
+#grid > div,
+#grid2 > div {
+    width: 50%;
+    height: 50%;
+    float: left;
+	background-color:#000;
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	border:5px #000 solid;
+	position:relative;
+}
+
+#grid > div.twod,
+#grid2 > div.twod {
+    background-color: #f66464;
+	background-image:url('../images/noodle.jpg');
+}
+
+#grid > div.noodle,
+#grid2 > div.noodle {
+    background-color: #62b3d1;
+	background-image:url('../images/2d.jpg');
+}
+
+#grid > div.rus,
+#grid2 > div.rus {
+    background-color: #f2dd74;
+	background-image:url('../images/rus.jpg');
+}
+
+#grid > div.murdoc,
+#grid2 > div.murdoc {
+    background-color: #41bb7e;
+	background-image:url('../images/murdoc.jpg');
+}
+
+.privacy, 
+.privacy:hover, 
+.privacy:active {
+	color:#e0e0e0;
+	font-size:10px;
+	text-align:center; 
+	display:block; 
+	padding:0px;
+}
+.privacy.policy2 {
+	padding:15px 0 0;
+}
+
+
+.screen{
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+.screen .name{
+	position: absolute;
+    z-index: 2;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: .5s ease-in all;
+    left: 0;
+    top: 40%;
+}
+
+.upload .name{
+	font-size:3em;
+	margin-bottom:20px;
+}
+
+.screen .bg{
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:1;
+	opacity:0;
+	transition:.5s ease-in all;
+}
+
+.screen:hover .bg{
+	opacity:.6;
+	transition:.5s ease-in all;
+	cursor:pointer;
+}
+
+.screen:hover .name{
+	opacity:1;
+	transition:.5s ease-in all;
+	cursor:pointer;
+}
+
+.select .view{
+	position:absolute;
+	z-index:1;
+	width:100%;
+	height:100%;
+	transition:.5s ease-in all;
+	opacity:0;
+}
+
+.select.active .view{
+	transition:.5s ease-in all;
+	z-index:4;
+	opacity:1;
+}
+
+#grid .btnHolder{
+	position:absolute;
+	left:0;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+
+a.live.btn:link,
+a.live.btn:visited{
+	width: auto;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 10px 15px 8px 15px;
+    background: #fff;
+    color: #000;
+    text-transform: uppercase;
+    font-size: .8em;
+	text-decoration:none;
+}
+
+a.live.btn:hover,
+a.live.btn:active{
+	text-decoration:underline;
+}
+
+.upload, .camera {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 45%;
+    padding: 20% 0;
+}
+
+.upload{
+	padding-bottom:0;
+}
+
+.camera{
+	padding-top:5%;
+}
+
+.camera .btn{
+	cursor:pointer;
+	display:block;
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+	border:2px #fff solid;
+	padding:15px;
+	transition:.5s ease-in all;
+}
+
+.camera .btn:hover{
+	background:#fff;
+	color:#000;
+	transition:.5s ease-in all;
+}
+
+#file-input{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#file-input + label {
+    font-size: 1em;
+    font-weight: normal;
+    color: white;
+    background-color: transparent;
+    display: inline-block;
+    border: 2px #fff solid;
+    width: 80%;
+    padding: 15px;
+	transition:.5s ease-in all;
+}
+
+#file-input:focus + label,
+#file-input + label:hover {
+    background-color:#fff;
+	color:#000;
+	transition:.5s ease-in all;
+}
+
+#file-input + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+#file-input:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+#file-input + label * {
+	pointer-events: none;
+}
+
+.noodle .screen .bg,
+.noodle.active .view{
+	background-color:#62b3d1;
+	transition:.5s ease-in all;
+}
+.twod .screen .bg,
+.twod.active .view{
+	background-color:#f66464;
+	transition:.5s ease-in all;
+}
+.rus .screen .bg,
+.rus.active .view{
+	background-color:#f2dd74;
+	transition:.5s ease-in all;
+}
+.murdoc .screen .bg,
+.murdoc.active .view{
+	background-color:#41bb7e;
+	transition:.5s ease-in all;
+}
+
+a.capture {
+    position: absolute;
+    bottom: 5%;
+    width: auto;
+    left: 5%;
+    background: rgba(255,255,255,.2);
+    border-radius: 5px;
+    color: #fff;
+    padding: 15px;
+    margin: 2;
+	display:none;	
+}
+
+.allbutton {
+    background: rgba(0,0,0,.8);
+    padding: 15px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+	text-align:center;
+}
+
+.allbutton .col {
+    display: inline-block;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.allbutton .btnHolder {
+    display: inline-block;
+    margin:0 10px;
+    min-width: 40%;
+    max-width: 40%;
+    padding:0;
+    font-size: 12px;
+}
+
+.allbutton .btnHolder a:link, 
+.allbutton .btnHolder a:visited {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+	padding:10px;
+    background: transparent;
+    border: 2px #fff solid;
+	transition:.5s ease-in all;
+}
+
+.allbutton .btnHolder a:hover, 
+.allbutton .btnHolder a:active {
+    background:#fff;
+	color:#000;
+	transition:.5s ease-in all;
+}
+
+.allbutton .btnHolder a i{
+	margin-right:10px;
+}
+
+i.fa-arrow-up.fa {
+    font-size: 12px;
+    margin-right: 5px;
+    position: relative;
+    top: -2px;
+}
+
+#my_share {
+    position: relative;
+    z-index: 0;
+	height:0;
+	overflow:hidden;
+}
+div#my_share img {
+    width: 100%;
+}
+
+/*mobile*/
+
+.mobileView .select{
+	cursor: pointer;
+}
+.mobileView .camera{
+	display:none;
+}
+.mobileView .html{
+	display:none!important;
+}
+.mobileView .mobile{
+	display:block;
+}
+.mobileView .bgwrap img{
+	width:auto;
+	height:100%;
+}
+
+.mobileView #my_result{
+	margin-bottom:0px;
+}
+
+.mobileView .actionbuttons div:nth-child(2){
+	display:none;
+}
+
+.mobileView .actionbuttons div{
+	width:100%;
+}
+
+.mobileView .allbutton .btnHolder a.reset:link,
+.mobileView .allbutton .btnHolder a.reset:visited{
+	border:none;
+	width: 50px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 90px;
+	margin: 0 auto;
+	position: relative ;
+	top: 10px
+}
+.mobileView .allbutton .btnHolder a.reset i{
+	margin:0;
+}
+.mobileView .allbutton{
+	background:#000;
+}
+.mobileView .msg{
+	position: fixed;
+	bottom: 15%;
+	background: #000;
+	padding: 10px 0;
+	width: 100%;
+	left: 0;
+}
+
+.mobileView .allbutton .mobile.col{
+	display:inline-block;
+}
+
+.loading{
+	opacity:.5;
+	pointer-events:none;
+}
+
+.share.loading:after {
+    content: '';
+    background-image: url('../images/preloader.gif');
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-size: 12px;
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
+
+/*no webcam*/
+.no-webcam .or.html,
+.no-webcam .camera{
+	display:none!important;
+}
+.no-webcam .upload{
+	padding:40% 0 10% 0;
+	height:100%;
+}
+
+@media only screen and (max-height:900px) {
+	#wrapper{
+		position:relative;
+		transform:none;
+		left:0;
+		top:30px;
+		margin-bottom:80px;
+		
+	}
+	.allbutton{
+		position: fixed;
+	}
+	
+	.allbutton .col{
+		display:inline-block;
+		width:48%;
+		margin:0;
+	}
+	.mobileView .msg{
+		position:static;
+	}
+	.mobileView .allbutton .col{
+		width:100%;
+	}
+	.mobileView #wrapper{
+		height: 1000px;
+	}
+}
+
+@media only screen and (max-width:640px) {
+	#wrapper{
+		zoom:.7;
+	}
+	
+	.select{
+		cursor: pointer;
+	}
+	.camera{
+		display:none;
+	}
+	.html{
+		display:none!important;
+	}
+	.mobile{
+		display:block;
+	}
+	.bgwrap img{
+		width:auto;
+		height:100%;
+	}
+	.allbutton .col{
+		width: 100%;
+		margin: 5px 0;
+	}
+	#my_result{
+		margin-bottom:100px;
+	}
+	.actionbuttons div:nth-child(2){
+		display:none;
+	}
+	
+	.actionbuttons div{
+		width:100%;
+	}
+	
+	.allbutton .btnHolder a.reset:link,
+	.allbutton .btnHolder a.reset:visited{
+		border:none;
+		width: 50px;
+		padding: 10px;
+		text-align: center;
+		border-radius: 90px;
+		margin: 0 auto;
+		position: relative ;
+		top: 10px
+	}
+	.allbutton .btnHolder a.reset i{
+		margin:0;
+	}
+	.allbutton{
+		background:#000;
+	}
+	.msg{
+		position: fixed;
+		bottom: 15%;
+		background: #000;
+		padding: 10px 0;
+		width: 100%;
+		left: 0;
+	}
+	.privacy.policy2 {display:none;}
+}
+
+@media only screen and (max-width:480px) {
+	#wrapper{
+		zoom:.6;
+	}
+	.privacy.policy2 {display:none;}
+}
+
+@media only screen and (max-width:360px) {
+	#wrapper{
+		zoom:.55;
+	}
+}
+@media only screen and (max-width:320px) {
+	#wrapper{
+		zoom:.5;
+	}
+}
+
+.nojs{
+	display:none;
+}
+/*no js*/
+.no-js .js,
+.no-js .screen{
+	display:none;
+}
+.no-js .nojs{
+	display:block;
+}
+
+/* To temporarily disable Share links */
+.sharebuttons.col {
+    pointer-events: none;
+}
